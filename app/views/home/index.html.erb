@@ -1,0 +1,24 @@
+<br>
+<br>
+<br>
+<%= simple_form_for :scrap, url: scrap_path do |f| %>
+
+    <div class="form-group">
+      <div class="col-sm-9">
+        <%= f.label :url %>
+        <%= f.input_field :url,  class: "form-control" %>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <p>                </p>
+
+    <div class="form-group">
+      <div class="col-sm-9">
+        <%= f.submit 'Scrap', class: "btn btn-default" %>
+      </div>
+    </div>
+
+<% end %>
