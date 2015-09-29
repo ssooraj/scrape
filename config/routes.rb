@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  match '/scrap' => 'home#scrap'
-  match 'image' => 'home#image'
-  match '/scrapper' => 'home#scrapper'
+  post '/scrap' => 'home#scrap'
+  post 'image' => 'home#image'
+  get '/scrapper' => 'home#scrapper'
 end
