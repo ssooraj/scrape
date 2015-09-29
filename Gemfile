@@ -13,6 +13,7 @@ gem 'groupdate', '~> 2.2.1'
 gem 'rails_12factor', group: :production
 gem 'nokogiri'
 gem 'simple_form'
+gem 'mechanize'
 
 group :development, :test do
   gem 'byebug'
