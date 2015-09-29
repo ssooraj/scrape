@@ -33,9 +33,9 @@ class HomeController < ApplicationController
         var link = $( this ).attr('href'); 
         if(link){
           if(link[0] == '/'){
-            $( this ).attr('href', '/get_page?page=http://#{get_host_without_www(page)}'+link);
+            $( this ).attr('href', '/scrapper?page=http://#{get_host_without_www(page)}'+link);
           }else{
-            $( this ).attr('href', '/get_page?page='+link);
+            $( this ).attr('href', '/scrapper?page='+link);
           }
         }
       });
@@ -53,6 +53,14 @@ class HomeController < ApplicationController
     host = URI.parse(url).host.downcase
     host.start_with?('www.') ? host[4..-1] : host
   end
-
-
+  
+   def scrapper
+    url = params[:page]
+    url = 'http://www.google.co.in' if url == ''
+    mechanize = Mechanize.new
+    page = mechanize.get(url)
+    total_content = "<script type='text/javascript' src= 'https://code.jquery.com/jquery-2.1.4.min.js'></script>".html_safe + page.body.html_safe + script(url)
+    File.open(Rails.root.to_s+'/public/scraper.html', 'wb') { |file| file.write(total_content) }
+    redirect_to '/scraper.html'
+  end
 end
