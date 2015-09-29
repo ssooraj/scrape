@@ -9,8 +9,8 @@ class HomeController < ApplicationController
     url = params[:scrap][:url]
     url = 'http://www.google.co.in' if url == ''
     mechanize = Mechanize.new
-    page = mechanize.get(page_url)
-    total_content = "<script type='text/javascript' src= 'https://code.jquery.com/jquery-2.1.4.min.js'></script>".html_safe + page.body.html_safe + script(params[:page])
+    page = mechanize.get(url)
+    total_content = "<script type='text/javascript' src= 'https://code.jquery.com/jquery-2.1.4.min.js'></script>".html_safe + page.body.html_safe + script(url)
     File.open(Rails.root.to_s+'/public/scraper.html', 'wb') { |file| file.write(total_content) }
     redirect_to '/scraper.html'
   end
