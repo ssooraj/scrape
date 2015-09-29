@@ -1,24 +1,59 @@
-<br>
-<br>
-<br>
-<%= simple_form_for :scrap, url: scrap_path do |f| %>
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Scrap Page</a></li>
+    <li><a href="#tabs-2">Unblock Image</a></li>
+  </ul>
+  <div id="tabs-1">
+   <br>
+   <br>
+   <br>
+   <%= simple_form_for :scrap, url: scrap_path do |f| %>
 
-    <div class="form-group">
-      <div class="col-sm-9">
-        <%= f.label :url %>
-        <%= f.input_field :url,  class: "form-control" %>
-      </div>
+   <div class="form-group">
+    <div class="col-sm-9">
+      <%= f.label :url %>
+      <%= f.input_field :url,  class: "form-control" %>
     </div>
+  </div>
 
-    <br>
-    <br>
-    <br>
-    <p>                </p>
+  <br>
+  <br>
+  <br>
+  <p>                </p>
 
-    <div class="form-group">
-      <div class="col-sm-9">
-        <%= f.submit 'Scrap', class: "btn btn-default" %>
-      </div>
+  <div class="form-group">
+    <div class="col-sm-9">
+      <%= f.submit 'Scrap', class: "btn btn-default" %>
     </div>
+  </div>
 
-<% end %>
+  <% end %>
+</div>
+<div id="tabs-2">
+  <br>
+  <br>
+  <br>
+  <%= simple_form_for :image, url: image_path do |f| %>
+
+  <div class="form-group">
+    <div class="col-sm-9">
+      <%= f.label :url %>
+      <%= f.input_field :url,  class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <p>                </p>
+
+  <div class="form-group">
+    <div class="col-sm-9">
+      <%= f.submit 'Scrap', class: "btn btn-default" %>
+    </div>
+  </div>
+
+  <% end %>
+</div>
+
+</div>

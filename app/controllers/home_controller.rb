@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   def image
     # http://static4.businessinsider.com/image/54228ba76da8110a73d652eb-960/emma-watson.jpg
-    open(CGI::unescape(params[:url]), 'rb') do |f|
+    open(CGI::unescape(params[:image][:url]), 'rb') do |f|
       send_data f.read, :type => f.content_type, :disposition => "inline"
     end
   end
